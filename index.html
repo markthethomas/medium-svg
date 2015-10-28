@@ -4,24 +4,33 @@
     <meta charset="utf-8">
     <title>Fun with The NewMedium Logo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container">
-      <div class="col-sm-8">
-        <h2>A Medium Amount of Fun</h2>
+      <div class="col-md-4">
+        <h1>Medium Logo Fun</h1>
         <p>
-          Ever wanted to create your own modern, artsy version of the Medium logo? Me neither. But now you can!
+          Ever wanted to create your own modern, artsy version of <a href="https://medium.com/the-story/the-story-behind-medium-s-new-logo-4cd3e143dfcf#.grfj99wjd">the Medium logo?</a> Me neither. But now you can!
         </p>
+        <p>
+          Read more <a href="ifelse.io">here</a>
+        </p>
+        <p>
+          <img src="https://cdn-images-1.medium.com/max/1600/1*5ztbgEt4NqpVaxTc64C-XA.png" alt="" class="img-responsive">
+        </p>
+
+        <h3>Transformation Station</h3>
+        <hr>
         <button class="btn btn-default" id="modernArt">
           Generate New Color Scheme
         </button>
+        <button class="btn btn-default hidden" id="reset">
+          Reset
+        </button>
         <hr>
-        <h4>Dazzle Zone</h4>
-        <!-- <label>Level</label>
-        <input type="number" id="levelOfDazzling">
-        <br>
-        <br> -->
 
+        <h4>Dazzle Zone</h4>
         <button class="btn btn-default" id="dazzle">
           Dazzle Me
         </button>
@@ -30,9 +39,39 @@
           End the madness!
         </button>
 
-
-        <br>
         <hr>
+        <h4>ZOINKS!</h4>
+
+        <button class="btn btn-default" id="grow">
+          Grow
+        </button>
+
+        <button class="btn btn-default" id="shrink">
+          Shrink!
+        </button>
+
+        <button class="btn btn-default" id="squishX">
+          Squish
+        </button>
+
+        <button class="btn btn-default" id="unsquish">
+          Un-squish
+        </button>
+        <hr>
+        <footer>
+          <strong>About</strong><br>
+          <a target="_blank" href="https://github.com/markthethomas">
+            <i class="fa fa-user fa-lg"></i>
+          </a>
+          <a target="_blank" href="http://ifelse.io">
+            <i class="fa fa-book fa-lg"></i>
+          </a>
+          <a target="_blank" href="https://github.com/markthethomas/medium-svg">
+            <i class="fa fa-github fa-lg"></i>
+          </a>
+        </footer>
+      </div>
+      <div class="col-md-7">
         <svg id="medium" width="100%" height="500">
           <polygon fill="#00AB6C" points="0,0 200,70 200,420, 0,360"/>
           <polygon fill="#14C767" points="200,70 200,280 400,355"/>
@@ -43,32 +82,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <script>
-      var dazzler;
-      function randHex() {
-        return '#'+Math.floor(Math.random()*16777215).toString(16);
-      }
-
-      function generateNewColorScheme() {
-        Array.prototype.forEach.call(document.getElementsByTagName('polygon'), function(shape) {
-          shape.style.fill = randHex();
-        })
-      }
-
-      document.getElementById('modernArt').addEventListener('click', function() {
-        generateNewColorScheme();
-      });
-
-      document.getElementById('dazzle').addEventListener('click', function () {
-        dazzler = window.setInterval(function () {
-          generateNewColorScheme();
-        }, 20)
-      });
-
-      document.getElementById('stopDazzle').addEventListener('click', function () {
-        clearInterval(dazzler);
-      });
-
-    </script>
+    <script src="src.js" charset="utf-8"></script>
   </body>
 </html>
