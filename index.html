@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fun with The NewMedium Logo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-8">
+        <h2>A Medium Amount of Fun</h2>
+        <p>
+          Ever wanted to create your own modern, artsy version of the Medium logo? Me neither. But now you can!
+        </p>
+        <button class="btn btn-default" id="modernArt">
+          Generate New Color Scheme
+        </button>
+        <hr>
+        <h4>Dazzle Zone</h4>
+        <!-- <label>Level</label>
+        <input type="number" id="levelOfDazzling">
+        <br>
+        <br> -->
+
+        <button class="btn btn-default" id="dazzle">
+          Dazzle Me
+        </button>
+
+        <button class="btn btn-danger" id="stopDazzle">
+          End the madness!
+        </button>
+
+
+        <br>
+        <hr>
+        <svg id="medium" width="100%" height="500">
+          <polygon fill="#00AB6C" points="0,0 200,70 200,420, 0,360"/>
+          <polygon fill="#14C767" points="200,70 200,280 400,355"/>
+          <polygon fill="#32FC8D" points="400,355 400,0 600,70 600,420"/>
+          <polygon fill="#0BE370" points="270,170 400,0 600,70 400,355"/>
+        </svg>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script>
+      var dazzler;
+      function randHex() {
+        return '#'+Math.floor(Math.random()*16777215).toString(16);
+      }
+
+      function generateNewColorScheme() {
+        Array.prototype.forEach.call(document.getElementsByTagName('polygon'), function(shape) {
+          shape.style.fill = randHex();
+        })
+      }
+
+      document.getElementById('modernArt').addEventListener('click', function() {
+        generateNewColorScheme();
+      });
+
+      document.getElementById('dazzle').addEventListener('click', function () {
+        dazzler = window.setInterval(function () {
+          generateNewColorScheme();
+        }, 20)
+      });
+
+      document.getElementById('stopDazzle').addEventListener('click', function () {
+        clearInterval(dazzler);
+      });
+
+    </script>
+  </body>
+</html>
